@@ -1017,7 +1017,7 @@
     <div class="divider fade-in"></div>
 
     <div class="board-intro fade-in">
-      <p><strong>Instructions:</strong> Click on at least <strong>5 tasks</strong> that interest you from the board below. You are free to choose any combination — there is no wrong selection.</p>
+      <p><strong>Instructions:</strong> Click on at least <strong>3 tasks</strong> that interest you from the board below. You are free to choose any combination — there is no wrong selection.</p>
       <p>For each task you complete, <strong>document your work by sending photos</strong> — of your notes, posters, written work, or screenshots — to <strong>Barbara</strong>. This is your evidence of learning.</p>
       <p>Tasks vary in type: some are creative, some analytical, some involve speaking or writing. Pick the ones that suit you best and challenge you to think deeply.</p>
     </div>
@@ -1108,13 +1108,11 @@
 
     <!-- Selection counter -->
     <div id="counterBar" class="counter-bar">
-      <span class="counter-text" id="counterText">You have selected <strong>0</strong> of 5 required tasks</span>
+      <span class="counter-text" id="counterText">You have selected <strong>0</strong> of 3 required tasks</span>
       <div class="counter-pips" id="pips">
         <div class="pip" id="p1"></div>
         <div class="pip" id="p2"></div>
         <div class="pip" id="p3"></div>
-        <div class="pip" id="p4"></div>
-        <div class="pip" id="p5"></div>
       </div>
       <span class="counter-msg" id="counterMsg"></span>
     </div>
@@ -1338,22 +1336,22 @@
     count = document.querySelectorAll('.task-card.selected').length;
 
     // Update pips
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 3; i++) {
       document.getElementById('p' + i).classList.toggle('filled', i <= count);
     }
 
     // Update text
-    const needed = Math.max(0, 5 - count);
+    const needed = Math.max(0, 3 - count);
     const ct = document.getElementById('counterText');
-    ct.innerHTML = `You have selected <strong>${count}</strong> of 5 required tasks`;
+    ct.innerHTML = `You have selected <strong>${count}</strong> of 3 required tasks`;
 
     // Update message
     const msg = document.getElementById('counterMsg');
     if (count === 0) {
       msg.textContent = '';
-    } else if (count < 5) {
+    } else if (count < 3) {
       msg.textContent = `${needed} more to go!`;
-    } else if (count === 5) {
+    } else if (count === 3) {
       msg.textContent = '🎉 Minimum reached!';
     } else {
       msg.textContent = `${count} tasks selected — great ambition!`;
